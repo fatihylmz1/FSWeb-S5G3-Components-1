@@ -88,6 +88,44 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    baslik: "Website Bug Trackers: Your Digital Sherlock Holmes",
+    tarih: "18 Ekim 2023",
+    ilkParagraf: `In today’s digital era, if your business does not have a website, consider it dead.If you do have a company website,
+    the last thing you want to grapple with is a fast and sleek digital platform plagued by bugs.Yep, those nasty little flaws that can 
+    lead to the loss of revenue and even damage the reputation of your brand. Fortunately, bug tracking tools are swooping in to help, 
+    pushing old-hat spreadsheets into the background.On that note, let's review some of the top benefits you can reap from issue trackers 
+    besides the actual bug hunting. `,
+
+    ikinciParagraf: `What’s the point of having an excellent reporting system on bugs reported but not being able to manage tasks? An effective
+     website bug tracker should help you streamline this process for your team and external stakeholders.In this case, it allows the team to 
+     convert the tasks into feedback, categorize issues into lists, and assign these to responsible stakeholders.Your company is most likely 
+     using a gamut of management tools. So it seems logical enough that the website issue tracking tool should be integrated into your workflow 
+     seamlessly.That makes it more convenient to import and export the action points and details related to these tasks into and from other tools. `,
+
+    ucuncuParagraf: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+  },
+  {
+    baslik: "Is Investing in Crypto for Passive Income Goals a Good Idea-l?",
+    tarih: "14 Kasım 2023",
+    ilkParagraf: `There are billions in **​total value locked in the DeFi economy**​. In less than one year, it grew by 4000%, reaching over $40
+     billion at one point.But despite the overwhelming influx of new interest and investment, decentralized finance is far from perfect. 
+     Thankfully, its flaws are not systematic human greed or corruption, or inequality and exclusivity. Its issues are mostly on the technical 
+     and social side, and so in theory will be resolved over time and with more participation.One of these fixable flaws of the crypto economy 
+     is a lack of liquidity.​ ​And​ ​you​ ​can help provide it, making the market stronger and earning passive income at the same time. `,
+
+    ikinciParagraf: `Now is a great time to become a liquidity provider. The industry is scaling fast and supply needs to meet fast-growing
+     demands. To help grow the decentralized economy, many projects offer incentives or rewards for crypto holders to contribute their 
+     funds (supply liquidity) and help sustain this fast-growing ecosystem.A fluid economy is a powerful one, opening up new financial 
+     opportunities and freedom for everyone - not just the upper echelon of Wall Street bros. So ​**learn more about liquidity mining** 
+     and maybe discover (or rekindle) a new relationship with crypto <3 `,
+
+    ucuncuParagraf: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+  },
 ];
 
 /*
@@ -115,3 +153,56 @@ const data = [
   Adım 5: Veri dizisine yeni haber nesnesi eklemeyi deneyin. Diğer verilerle aynı yapıda olmasına dikkat edin.
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
+
+function haberYapici(haberler) {
+
+  const div = document.createElement("div");
+  div.className = "article";
+
+
+  const h2 = document.createElement("h2");
+  h2.textContent = haberler.baslik;
+  div.appendChild(h2);
+
+
+  const tarih = document.createElement("p");
+  tarih.className = "tarih";
+  tarih.textContent = haberler.tarih;
+  div.appendChild(tarih);
+
+
+  const prg1 = document.createElement("p");
+  prg1.textContent = haberler.ilkParagraf;
+  div.appendChild(prg1);
+
+
+  const prg2 = document.createElement("p");
+  prg2.textContent = haberler.ikinciParagraf;
+  div.appendChild(prg2);
+
+
+  const prg3 = document.createElement("p");
+  prg3.textContent = haberler.ucuncuParagraf;
+  div.appendChild(prg3);
+
+
+  const btn = document.createElement("button");
+  btn.className = "expandButton";
+  btn.textContent = "+";
+  btn.addEventListener("click", (event) => {
+    event.target.parentElement.classList.toggle("article-open");
+  })
+  div.appendChild(btn);
+
+
+
+  return div;
+
+}
+const articles = document.querySelector(".articles");
+data.forEach(element => {
+  articles.appendChild(haberYapici(element));
+});
+
+
+
